@@ -55,7 +55,7 @@
                     '<td>'+valeur(tasks[i].title)+'</td>'+
                     '<td>'+valeur(tasks[i].category)+'</td>'+
                     '<td>'+valeur(tasks[i].description)+'</td>'+
-                    '<td><a href="/task/'+tasks[i].id+'">show</a></td>'+
+                    '<td><a href="task/'+tasks[i].id+'">show</a></td>'+
                 '</tr>';
             $("tbody").append(row);
             

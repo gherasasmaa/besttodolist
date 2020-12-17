@@ -7,11 +7,11 @@
     <h2>{{ $task->title }} - <span>{{ $task->category }}</span></h2>
     <p>{{ $task->description }}</p>
 
-    <form class="form-group" action="/task/{{ $task->id }}" method='post'>
+    <form class="form-group" action="{{ route('destroy', $task->id) }}" method='post'>
     @csrf
     @method('DELETE')
         <button class="btn btn-danger" id="deleteTask">delete Task</button>
-        <a href="/task/{{ $task->id }}" class="btn btn-secondary">cancel</a>
+        <a href="{{ route('tasks') }}" class="btn btn-secondary">cancel</a>
     </form>
 
 </div>

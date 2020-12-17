@@ -34,11 +34,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
 /**
  * les routes pour la gestion d'une task
  */
-Route::get('/task', [TaskController::class, 'index'])->name('tasks'); //afficher la liste des tasks
-Route::get('/task/create', [TaskCreateController::class, 'create']); //créer une nouvelle task - formulaire
-Route::post('/task/', [TaskStoreController::class, 'store']); //sauvegarder une nouvelle task
-Route::get('/task/{task_id}', [TaskShowController::class, 'show']); //afficher une task
-Route::get('/task/{task_id}/edit', [TaskEditController::class, 'edit']); //éditer une task - formulaire
-Route::patch('/task/{task_id}', [TaskUpdateController::class, 'update']); //mettre à jour une task
-Route::get('/task/{task_id}/delete', [TaskDeleteController::class, 'delete']); //effacer une task - confirmation
-Route::delete('/task/{task_id}', [TaskDestroyController::class, 'destroy']); //supprimer la task définitivement
+Route::get('task', [TaskController::class, 'index'])->name('tasks'); //afficher la liste des tasks
+Route::get('task/create', [TaskCreateController::class, 'create']); //créer une nouvelle task - formulaire
+Route::post('task', [TaskStoreController::class, 'store'])->name('save'); //sauvegarder une nouvelle task
+Route::get('task/{task_id}', [TaskShowController::class, 'show']); //afficher une task
+Route::get('task/{task_id}/edit', [TaskEditController::class, 'edit']); //éditer une task - formulaire
+Route::patch('task/{task_id}', [TaskUpdateController::class, 'update'])->name('update'); //mettre à jour une task
+Route::get('task/{task_id}/delete', [TaskDeleteController::class, 'delete']); //effacer une task - confirmation
+Route::delete('task/{task_id}', [TaskDestroyController::class, 'destroy'])->name('destroy'); //supprimer la task définitivement

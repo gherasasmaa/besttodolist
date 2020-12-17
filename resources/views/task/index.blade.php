@@ -20,13 +20,13 @@
                 <td>{{ $task->title }}</td>
                 <td>{{ $task->category }}</td>
                 <td>{{ $task->description }}</td>
-                <td><a href="/task/{{$task->id}}">show</a></td>
+                <td><a href="task/{{$task->id}}">show</a></td>
             </tr>
             @endforeach
         </tbody>
     </table>
-    <a class="btn btn-primary pull-right" href='/task/create'>add new task</a>
+    <a class="btn btn-primary pull-right" href='task/create'>add new task</a>
 
-    @include('javascript/sort');
+    @include('javascript/sort')
 </div>
 @endsection
