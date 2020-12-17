@@ -9,6 +9,10 @@ use App\Models\Task;
 
 class TaskShowController extends Controller
 {
+    /**
+     * affichage de la task avec toutes les informations par exemple la description complete de la task.
+     * protection de la task par un retour au login en cas d'attaque GET via la barre d'adresse.
+     */
     public function show($task_id)
     {
         $task = Task::find($task_id);

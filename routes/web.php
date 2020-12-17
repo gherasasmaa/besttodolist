@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+/**
+ * les controlleurs pour gerer une task
+ */
 use App\Http\Controllers\Task\TaskController;
 use App\Http\Controllers\Task\TaskCreateController;
 use App\Http\Controllers\Task\TaskStoreController;
@@ -9,8 +12,6 @@ use App\Http\Controllers\Task\TaskEditController;
 use App\Http\Controllers\Task\TaskUpdateController;
 use App\Http\Controllers\Task\TaskDeleteController;
 use App\Http\Controllers\Task\TaskDestroyController;
-
-
 
 /*
 |--------------------------------------------------------------------------
@@ -23,19 +24,21 @@ use App\Http\Controllers\Task\TaskDestroyController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::view('/', 'index');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
+    ->name('home');
 
-Route::get('/task', [TaskController::class, 'index'])->name('tasks');
-Route::get('/task/create', [TaskCreateController::class, 'create'])->name('taskCreate');
-Route::post('/task/', [TaskStoreController::class, 'store'])->name('taskStore');
-Route::get('/task/{task_id}', [TaskShowController::class, 'show'])->name('taskShow');
-Route::get('/task/{task_id}/edit', [TaskEditController::class, 'edit'])->name('taskEdit');
-Route::patch('/task/{task_id}', [TaskUpdateController::class, 'update'])->name('taskUpdate');
-Route::get('/task/{task_id}/delete', [TaskDeleteController::class, 'delete'])->name('taskDelete');
-Route::delete('/task/{task_id}', [TaskDestroyController::class, 'destroy'])->name('taskDestroy');
+/**
+ * les routes pour la gestion d'une task
+ */
+Route::get('/task', [TaskController::class, 'index'])->name('tasks'); //afficher la liste des tasks
+Route::get('/task/create', [TaskCreateController::class, 'create']); //créer une nouvelle task - formulaire
+Route::post('/task/', [TaskStoreController::class, 'store']); //sauvegarder une nouvelle task
+Route::get('/task/{task_id}', [TaskShowController::class, 'show']); //afficher une task
+Route::get('/task/{task_id}/edit', [TaskEditController::class, 'edit']); //éditer une task - formulaire
+Route::patch('/task/{task_id}', [TaskUpdateController::class, 'update']); //mettre à jour une task
+Route::get('/task/{task_id}/delete', [TaskDeleteController::class, 'delete']); //effacer une task - confirmation
+Route::delete('/task/{task_id}', [TaskDestroyController::class, 'destroy']); //supprimer la task définitivement

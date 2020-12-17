@@ -9,6 +9,10 @@ use App\Models\Task;
 
 class TaskDestroyController extends Controller
 {
+    /**
+     * suppression définitive de la task de la base de données.
+     * redirection vers la liste des tasks
+     */
     public function destroy($task_id)
     {
         $task = Task::find($task_id);

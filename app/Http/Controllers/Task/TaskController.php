@@ -9,7 +9,12 @@ use App\Models\Task;
 
 class TaskController extends Controller
 {
-    //
+    /**
+     * identification de l'utilisateur
+     * récupération de la liste des tasks de l'utilisateur
+     * renvoie de la vue avec la liste des tasks
+     */
+
     public function index()
     {
         $user = Auth::user();
