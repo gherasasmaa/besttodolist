@@ -41,9 +41,11 @@
         var tasksJson = @json($tasks);
         var tasksLength = Object.keys(tasksJson).length;
         var tasks = [];
+        
         // boucle qui transforme les données Json en tableau, ce n'est pas la meilleure idée, mais c'est facile à coder.
-        for (var i=0; i<tasksLength; i++) {
+        for (var i in tasksJson) {
             tasks.push(tasksJson[i]);
+            console.log(tasksJson[i]);
         }
 
         tasks = tasks.sort(sortByProperty("category"));

@@ -27,6 +27,7 @@
     </table>
     <a class="btn btn-primary pull-right" href='task/create'>add new task</a>
 
-    @include('javascript/sort')
+
+    @include('javascript.sort')
 </div>
 @endsection

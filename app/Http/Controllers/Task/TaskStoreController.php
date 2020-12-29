@@ -25,9 +25,9 @@ class TaskStoreController extends Controller
         $task = new Task();
         
         $task->user_id = Auth::id();
-        $task->title = htmlentities($data['title']);
-        $task->category = htmlentities($request->category);
-        $task->description = htmlentities($request->description);
+        $task->title = $data['title'];
+        $task->category = $request->category;
+        $task->description = $request->description;
 
         $task->save();
         
